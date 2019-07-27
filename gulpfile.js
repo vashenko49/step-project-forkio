@@ -11,7 +11,7 @@ let gulpRename = require('gulp-rename');
 let webpack = require('webpack-stream');
 let babel = require('gulp-babel');
 
-let isDevelopment = true;
+let isDevelopment = false;
 
 let webPackConfig = {
     output:{
@@ -31,7 +31,7 @@ let webPackConfig = {
 
 gulp.task('sass',function () {
     return gulp
-        .src('src/scss/main.scss')
+        .src('src/scss/index.scss')
         .pipe(gulpSass()) //компиляция scss файлов в css //конкатенация css файлов в один
         .on('error', function (err) {
             console.log(err.toString());

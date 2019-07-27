@@ -104,7 +104,7 @@ gulp.task('dev',function () {//Запуск сервера и последующ
         }
     });
     //При изменении - пересборка и копирование объединенного и минифицированного файла styles.min.css или script.min.js в папку dist, перезагрузка страницы
-    gulp.watch("src/*.scss", gulp.series('sass'));
+    gulp.watch("src/scss/index.scss", gulp.series('sass'));
     gulp.watch('src/*.js',gulp.series('script'));
     gulp.watch("*.html").on('change', browserSync.reload);
 });

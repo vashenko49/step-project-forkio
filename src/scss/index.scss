@@ -32,7 +32,7 @@ body{
   //max-width: $maxWidth;
   //margin: 0 auto;
   //width: 768px;
-  //width: 320px;
+  width: 320px;
   padding: 0 10px;
   box-sizing: border-box;
 }
@@ -75,7 +75,6 @@ body{
   justify-self: end;
   height: 41px;
   width: 41px;
-  background-color: #202529;
   display: flex;
   justify-content: space-evenly;
   align-items: flex-end;
@@ -119,6 +118,7 @@ body{
   background-color: #333333;
   width: 290px;
   transform: translate(-50%, 0);
+  z-index: 1;
   &__item{
     display: block;
     color: white;

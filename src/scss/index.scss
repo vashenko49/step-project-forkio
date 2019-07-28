@@ -29,10 +29,8 @@ body{
 
 .container{
   min-width: $minWidth;
-  //max-width: $maxWidth;
-  //margin: 0 auto;
-  //width: 768px;
-  width: 320px;
+  max-width: $maxWidth;
+  margin: 0 auto;
   padding: 0 10px;
   box-sizing: border-box;
 }

@@ -8,6 +8,18 @@ $maxWidth:1200px;
 body{
   overflow-x: hidden;
 }
+%button{
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  transition: color 0.3s linear;
+  color: white;
+  background-color: #8d81ac;
+  &:hover{
+    background-color: #fff;
+    color: #8d81ac;
+  }
+}
 %fontFamilyLato{
   font-family: Lato,sans-serif;
 }
@@ -19,7 +31,8 @@ body{
   min-width: $minWidth;
   //max-width: $maxWidth;
   //margin: 0 auto;
-  width: 320px;
+  //width: 768px;
+  //width: 320px;
   padding: 0 10px;
   box-sizing: border-box;
 }
@@ -33,28 +46,30 @@ body{
   &__logo{
     grid-area: logo;
   }
-  
+  &__img{
+    width: 43px;
+    height: 41px;
+    display: inline-block;
+    background-image: url('../img/Logo.png');
+    &:hover{
+      background-image: url('../img/logo-hover.png');
+    }
+  }
+  &__slogan{
+    display: none;
+    cursor: pointer;
+  }
   &__button{
     justify-self: center;
     width: 117px;
     height: 37px;
-    transition: color 0.3s linear;
     grid-area: button;
-    border-radius: 25px;
-    background-color: #8d81ac;
-    border: none;
-    outline: none;
-    color: white;
     font-size: 15px;
     font-weight: bold;
-    &:hover{
-      background-color: #fff;
-      color: #8d81ac;
-    }
+    @extend %button;
   }
-  
-}
 
+}
 .burger{
   grid-area: burger;
   justify-self: end;
@@ -96,7 +111,6 @@ body{
     left: 50%;
   }
 }
-
 .menu{
   transition: left 0.4s linear;
   position: absolute;
@@ -115,7 +129,7 @@ body{
     padding-left: 33px;
     position: relative;
     &:hover{
-      color:#8d81ac;
+      color:white;
     }
     &:hover:before{
       content: "";
@@ -130,11 +144,150 @@ body{
 
   }
 }
+.home{
+  position: relative;
+  height: 616px;
+  background:url("../img/header.png") center;
+  background-size: cover;
+  text-align: center;
+  @extend %fontFamilyMontserrat;
+  padding: 37px 0 0 0 ;
+  margin-bottom: 50px;
+  &__title{
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+  }
 
-@media screen and(min-width: 481px) and (max-width: 992px){
+  &__slogan{
+    font-size: 19px;
+    color: #8d81ac;
+    line-height: 1.9;
+    padding-top: 11px;
+  }
+
+  &__text{
+    font-size: 17px;
+    color: #848e97;
+    line-height: 2;
+  }
+  &__button{
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+    width: 290px;
+    height: 45px;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    @extend %button;
+    &:after{
+      position:absolute ;
+      content: "Unlimited 30-Days Trial Period";
+      @extend %fontFamilyMontserrat;
+      font-size: 14px;
+      font-weight: 400;
+      color: #848e97;
+      top: 125%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      white-space: nowrap;
+    }
+    }
+}
+
+@media screen and(min-width: 525px){
+  .header{
+    padding: 21px 10px;
+    grid-template-areas: 'logo button'
+                          'burger burger';
+
+    &__button{
+      font-size: 16px;
+      justify-self: end;
+      width: 145px;
+      height: 40px;
+    }
+    &__logo{
+      display: flex;
+      align-items: center;
+    }
+    &__slogan{
+      display: inline-block;
+      font-size: 24px;
+      font-family: Lato,sans-serif;
+      font-weight: bold;
+      color: #8d81ac;
+      margin-left: 17px;
+      &:hover{
+        color: #ffffff;
+      }
+    }
+  }
+  .burger{
+    height: 40px;
+    width: auto;
+    justify-self: center;
+    background: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    &__touch,  &__item{
+      display: none;
+    }
+
+  }
+  .menu{
+    position: static;
+    transform: translate(0, 0);
+    display: flex;
+    transition: none;
+    background:none;
+    width: 100%;
+    &__item{
+      display: inline-block;
+      line-height: 1;
+      border: none;
+      padding-left: 0;
+      position: static;
+      font-size: 16px;
+      font-weight: bold;
+      color: #8d81ac;
+      &:hover:before{
+        content: none;
+      }
+    }
+    li:not(:last-of-type){
+      margin-right: 45px;
+    }
+  }
+  .home{
+    height: 680px;
+    &__title{
+      font-size: 72px;
+    }
+    &__slogan{
+      font-size: 24px;
+    }
+    &__button{
+      width: 390px;
+      height: 65px;
+      font-size: 21px;
+    }
+  }
 
 
   @media screen and (min-width: 992px){
-
+    .header{
+      grid-template-columns: 150px 1fr 170px ;
+      grid-template-areas: 'logo burger button';
+    }
+    .burger{
+      justify-self: end;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .home{
+      height: 700px;
+    }
   }
 }

@@ -10,8 +10,9 @@ let browserSync = require('browser-sync').create();
 let gulpRename = require('gulp-rename');
 let webpack = require('webpack-stream');
 let babel = require('gulp-babel');
+let ifElse = require('gulp-if-else');
 
-let isDevelopment = false;
+let isDevelopment = true;
 
 let webPackConfig = {
     output:{
@@ -82,7 +83,7 @@ gulp.task('script',function () {
 
 gulp.task('img',function () { //оптимизация картинок и копирование их в папку dist
     return gulp.src('src/img/**/*')
-        .pipe(gulpImageMin())
+        .pipe(ifElse(!isDevelopment, gulpImageMin))
         .pipe(gulp.dest('dist/assets/img/'))
 });
 

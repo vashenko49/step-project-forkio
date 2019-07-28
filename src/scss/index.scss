@@ -8,6 +8,7 @@ $maxWidth:1200px;
 body{
   overflow-x: hidden;
 }
+
 %button{
   border-radius: 25px;
   border: none;
@@ -98,13 +99,13 @@ body{
       width: 20px;
     }
   }
-  & input:checked ~ &__item:first-of-type{
+  & input:hover ~ &__item:first-of-type/*,input:checked ~ &__item:first-of-type*/{
     width: 26px;
   }
-  & input:checked ~ &__item:last-of-type{
+  & input:hover ~ &__item:last-of-type/*, input:checked ~ &__item:last-of-type*/{
     width: 20px;
   }
-  & input:checked ~ .menu{
+  & input:hover ~ .menu/*, input:checked ~ .menu*/ {
     left: 50%;
   }
 }
@@ -133,7 +134,7 @@ body{
       content: "";
       width: 8px;
       height: 53px;
-      background-color: #8d81ac;
+      background-color: $mainColor;
       position: absolute;
       top: 53%;
       left: 0;
@@ -150,7 +151,7 @@ body{
   text-align: center;
   @extend %fontFamilyMontserrat;
   padding: 37px 0 0 0 ;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
   &__title{
     color: white;
     font-size: 48px;
@@ -159,7 +160,7 @@ body{
 
   &__slogan{
     font-size: 19px;
-    color: #8d81ac;
+    color: $mainColor;
     line-height: 1.9;
     padding-top: 11px;
   }
@@ -192,8 +193,46 @@ body{
     }
     }
 }
-
-@media screen and(min-width: 525px){
+.people{
+  background: url("../img/testmonials-bg.png") no-repeat ;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 60px 10px 60px 10px;
+  &__slogan{
+    @extend %fontFamilyMontserrat;
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  &__text{
+    display: none;
+  }
+  &__line{
+    display: inline-block;
+    width: 280px;
+    height: 2px;
+    background-color: #645766;
+    margin-top: 43px;
+  }
+}
+.card{
+  &__img{
+    margin: 35px 0 20px 0;
+  }
+  &__text{
+    color: #ffffff;
+    @extend %fontFamilyLato;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 16px;
+    hyphens: auto;
+    line-height: 1.6;
+  }
+}
+@media screen and(min-width: 481px){
   .header{
     padding: 21px 10px;
     grid-template-areas: 'logo button'
@@ -238,9 +277,10 @@ body{
     position: static;
     transform: translate(0, 0);
     display: flex;
+    justify-content: space-between;
     transition: none;
     background:none;
-    width: 100%;
+    min-width: 450px;
     &__item{
       display: inline-block;
       line-height: 1;
@@ -253,9 +293,6 @@ body{
       &:hover:before{
         content: none;
       }
-    }
-    li:not(:last-of-type){
-      margin-right: 45px;
     }
   }
   .home{
@@ -272,9 +309,47 @@ body{
       font-size: 21px;
     }
   }
+  .people{
+    display: grid;
+    grid-column-gap: 10px;
+    justify-items: center;
+    grid-template-columns: repeat(2,1fr);
 
+   &__slogan, &__text, &__line{
+      grid-column-start:1;
+      grid-column-end:3;
+    }
+    &__slogan{
+      font-size: 42px;
+    }
+    &__text{
+      width: 670px;
+      display: inline-block;
+      margin-top: 58px;
+      font-family: Lato,sans-serif;
+      font-size: 14px;
+      color:#645766;
+    }
+    &__line{
+      margin-top: 15px;
+      width: 699px;
+    }
+  }
+  .card{
+    &__img{
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-10%);
 
-  @media screen and (min-width: 992px){
+      &-minwidth{
+        position: relative;
+        min-height: 154px;
+      }
+    }
+  }
+  @media screen and (min-width: 993px){
     .header{
       grid-template-columns: 150px 1fr 170px ;
       grid-template-areas: 'logo burger button';
@@ -286,6 +361,22 @@ body{
     }
     .home{
       height: 700px;
+    }
+    .people{
+      grid-template-columns: repeat(3,1fr);
+      &__slogan, &__text, &__line{
+        grid-column-start:1;
+        grid-column-end:4;
+      }
+      &__slogan{
+        font-size: 48px;
+      }
+      &__text{
+        width: 860px;
+      }
+      &__line{
+        width: 780px;
+      }
     }
   }
 }

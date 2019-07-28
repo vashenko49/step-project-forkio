@@ -1,6 +1,5 @@
 # folder ignore
 .idea/**/*
-dist/**/*
 psd-photoshop/**/*
 node_modules/**/*
 task/**/*

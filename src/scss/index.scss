@@ -1,10 +1,13 @@
 @import "./reset";
 @import "../css/font.css";
 
-$mainColorFont: #8d81ac;
+$mainColor: #8d81ac;
 $minWidth:320px;
 $maxWidth:1200px;
 
+body{
+  backface-visibility: hidden;
+}
 %fontFamilyLato{
   font-family: Lato,sans-serif;
 }
@@ -14,25 +17,123 @@ $maxWidth:1200px;
 
 .container{
   min-width: $minWidth;
-  max-width: $maxWidth;
-  margin: 0 auto;
+  //max-width: $maxWidth;
+  //margin: 0 auto;
+  //width: 320px;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
-.logo{
+.header{
+  position: relative;
+  padding: 31px 10px;
+  background-color: #27262a;
+  display: grid;
+  grid-template-areas: 'logo button burger';
+  &__logo{
+    grid-area: logo;
+  }
+  
+  &__button{
+    justify-self: center;
+    width: 117px;
+    height: 37px;
+    transition: color 0.3s linear;
+    grid-area: button;
+    border-radius: 25px;
+    background-color: #8d81ac;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    &:hover{
+      background-color: #fff;
+      color: #8d81ac;
+    }
+  }
+  
+}
+
+.burger{
+  //position: relative;
+  grid-area: burger;
+  justify-self: end;
+  height: 41px;
+  width: 41px;
+  background-color: #202529;
   display: flex;
-  align-items: center;
-  &__symbol{
+  justify-content: space-evenly;
+  align-items: flex-end;
+  flex-direction: column;
+  &__touch{
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+    z-index: 1;
+    margin: 0;
+    position: absolute;
 
   }
-  &__slogan{
-    color: $mainColorFont;
-    font-size: 15px;
+  &__item{
+    margin-right: 5px;
+    width: 26px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px ;
+    transition: width 0.4s linear;
+    &:first-of-type{
+      width: 20px;
+    }
+  }
+  & input:checked ~ &__item:first-of-type{
+    width: 26px;
+  }
+  & input:checked ~ &__item:last-of-type{
+    width: 20px;
+  }
+  & input:checked ~ .menu{
+    left: 50%;
+  }
+}
+
+.menu{
+  transition: left 0.4s linear;
+  position: absolute;
+  top: 100%;
+  left: 150%;
+  background-color: #333333;
+  width: 290px;
+  transform: translate(-50%, 0);
+  &__item{
+    color: white;
+    @extend %fontFamilyMontserrat;
+    font-size: 26px;
+    line-height: 3.35;
+    border-bottom: 2px solid #3b3b3b;
+    padding-left: 33px;
+    position: relative;
+    &:hover{
+      color:#8d81ac;
+    }
+    &:hover:before{
+      content: "";
+      width: 8px;
+      height: 53px;
+      background-color: #8d81ac;
+      position: absolute;
+      top: 53%;
+      left: 0;
+      transform: translate(0, -50%);
+    }
+
   }
 }
 
 @media screen and(min-width: 481px) and (max-width: 992px){
 
-}
-@media screen and (min-width: 993px){
 
+  @media screen and (min-width: 992px){
+
+  }
 }

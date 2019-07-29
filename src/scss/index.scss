@@ -326,15 +326,18 @@ body{
   flex-direction: column;
   text-align: center;
   padding: 60px 10px 60px 10px;
+
   &__slogan{
     @extend %fontFamilyMontserrat;
     font-size: 36px;
     font-weight: bold;
     color: #ffffff;
   }
+
   &__text{
     display: none;
   }
+
   &__line{
     display: inline-block;
     width: 280px;
@@ -343,6 +346,7 @@ body{
     margin-top: 43px;
   }
 }
+
 .card{
   &__img{
     margin: 35px 0 20px 0;
@@ -356,6 +360,95 @@ body{
     hyphens: auto;
     line-height: 1.6;
   }
+}
+
+.pricing {
+  padding: 0 35px 79px;
+  background: url("../img/pricing-bg.png") #4b3b4e ;
+  background-size: cover;
+  @extend %fontFamilyMontserrat;
+  text-align: center;
+  color: #fff;
+
+  &__title {
+    font-size: 27px;
+    font-weight: 700;
+    margin-bottom: 53px;
+  }
+
+  &__variant {
+    background-color: rgba(255, 255, 255, .2);
+    padding-bottom: 38px;
+    margin-bottom: 14px;
+  }
+
+  &__variant-name {
+    padding-top: 46px;
+    padding-bottom: 34px;
+    margin-bottom: 32px;
+    background-color: rgba(255, 255, 255, .05);
+    text-transform: uppercase;
+    font-size: 23px;
+  }
+
+  &__price {
+    font-size: 56px;
+    font-weight: 700;
+  }
+
+  &__price:before { content: '\0024'; }
+  &__price:after {
+    content: 'per month';
+    display: block;
+    margin: 24px 39px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: .3;
+  }
+
+  &__variant-desc {
+    height: 50px;
+    font-size: 16px;
+    padding: 0 22px;
+    margin-bottom: 68px;
+  }
+
+  &__variant-desc:before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 5px;
+    margin: 0 auto 31px;
+    background-color: #8d81ac;
+  }
+
+  &__variant-btn {
+    display: inline-block;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, .2);
+    padding: 16px 38px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #fff;
+  }
+
+  &__variant-btn:hover {
+    background-color: rgba(255, 255, 255, .4);
+  }
+
+  &__variant.active {
+    margin: 40px 0;
+    background-color: rgba(0, 0, 0, .15);
+    transform: scale(1.1);
+
+    .pricing__variant-name {
+      background-color: rgba(0, 0, 0, .05);
+      color: rgba(255, 255, 255, .8);
+    }
+  }
+
 }
 
 @media screen and(min-width: 481px){
@@ -410,6 +503,7 @@ body{
     transition: none;
     background:none;
     min-width: 450px;
+
     &__item{
       display: inline-block;
       line-height: 1;
@@ -419,6 +513,7 @@ body{
       font-size: 16px;
       font-weight: bold;
       color: #8d81ac;
+
       &:hover:before{
         content: none;
       }
@@ -517,6 +612,7 @@ body{
       width: 699px;
     }
   }
+
   .card{
     &__img{
       margin: 0;
@@ -529,6 +625,28 @@ body{
         position: relative;
         min-height: 154px;
       }
+    }
+  }
+
+  .pricing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    &__title {
+      flex-basis: 100%;
+    }
+
+    &__variant {
+      display: inline-block;
+      width: 257px;
+      margin: 0 26px 92px;
+    }
+
+    &__variant.active {
+      transform: scale(1.2);
+      margin: 0 26px 92px;
     }
   }
 
@@ -615,5 +733,36 @@ body{
         width: 780px;
       }
     }
+
+    .pricing {
+      justify-content: center;
+
+      &__title {
+        margin-bottom: 122px;
+      }
+
+      &__variant {
+        width: 20%;
+        margin: 0 7px;
+      }
+
+      &__variant-name {
+        font-size: 2vw;
+      }
+
+      &__variant.active {
+        margin: 0 25px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: content-box;
+    padding-left: calc((100% - 1210px)/2);
+    padding-right: calc((100% - 1210px)/2);
   }
 }

@@ -159,7 +159,7 @@ body{
   text-align: center;
   @extend %fontFamilyMontserrat;
   padding: 37px 0 0 0 ;
-  margin-bottom: 80px;
+  margin-bottom: 115px;
 
   &__title{
     color: white;
@@ -280,6 +280,44 @@ body{
   }
 }
 
+.you-get {
+  padding: 34px 25px 0;
+  background-color: #f4f4f4;
+  @extend %fontFamilyMontserrat;
+  text-align: center;
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #8d81ac;
+  }
+
+  &__title:before {content: '<'}
+  &__title:after {content: '>'}
+
+  &__subtitle {
+    margin-bottom: 18px;
+    font-size: 16px;
+    color: #323232;
+  }
+
+  &__icon {
+    margin: 35px 0 25px;
+  }
+
+  &__desc {
+    @extend %fontFamilyLato;
+    font-size: 14px;
+    color: #848e97;
+    line-height: 1.3;
+  }
+
+  &__img {
+    margin: 57px 0 6px -22px;
+    height: 381px;
+  }
+}
+
 .people{
   background: url("../img/testmonials-bg.png") no-repeat ;
   background-size: cover;
@@ -319,6 +357,7 @@ body{
     line-height: 1.6;
   }
 }
+
 @media screen and(min-width: 481px){
   .header{
     padding: 21px 10px;
@@ -331,10 +370,12 @@ body{
       width: 145px;
       height: 40px;
     }
+
     &__logo{
       display: flex;
       align-items: center;
     }
+
     &__slogan{
       display: inline-block;
       font-size: 24px;
@@ -347,6 +388,7 @@ body{
       }
     }
   }
+
   .burger{
     height: 40px;
     width: auto;
@@ -416,6 +458,39 @@ body{
     }
   }
 
+  .you-get {
+    padding: 54px 30px 23px;
+    text-align: left;
+
+    &__title {
+      margin-bottom: 60px;
+      font-size: 41px;
+      text-align: center;
+    }
+
+    &__icon-wrapper {
+      display: inline-block;
+      width: 24%;
+      text-align: center;
+      vertical-align: top;
+    }
+
+    &__icon {
+      margin: 0 0 60px;
+    }
+
+    &__text {
+      text-align: left;
+      display: inline-block;
+      width: 75%;
+    }
+
+    &__img {
+      height: initial;
+      margin: 0;
+    }
+  }
+
   .people{
     display: grid;
     grid-column-gap: 10px;
@@ -456,6 +531,7 @@ body{
       }
     }
   }
+
   @media screen and (min-width: 993px){
     .header{
       grid-template-columns: 150px 1fr 170px ;
@@ -479,6 +555,44 @@ body{
 
       &__caption {
         font-size: 24px;
+      }
+    }
+
+    .you-get {
+      padding-top: 100px;
+      padding-right: 0;
+
+      &__title {
+        float: right;
+        width: 53%;
+        margin-bottom: 29px;
+        text-align: left;
+      }
+
+      &__items {
+        float: left;
+        display: inline-block;
+        width: 41%;
+      }
+
+      &__icon-wrapper { width: 28%; }
+      &__text { width: 70%; }
+
+      &__img-wrapper {
+        float: right;
+        display: inline-block;
+        width: 55%;
+        overflow: hidden;
+      }
+
+      &__img {
+        margin: 0;
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        clear: both;
       }
     }
 

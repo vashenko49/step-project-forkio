@@ -21,9 +21,11 @@ body{
     color: #8d81ac;
   }
 }
+
 %fontFamilyLato{
   font-family: Lato,sans-serif;
 }
+
 %fontFamilyMontserrat{
   font-family: Montserrat,sans-serif;
 }
@@ -67,8 +69,8 @@ body{
     font-weight: bold;
     @extend %button;
   }
-
 }
+
 .burger{
   grid-area: burger;
   justify-self: end;
@@ -86,8 +88,8 @@ body{
     z-index: 1;
     margin: 0;
     position: absolute;
-
   }
+
   &__item{
     margin-right: 5px;
     width: 26px;
@@ -99,16 +101,20 @@ body{
       width: 20px;
     }
   }
+
   & input:hover ~ &__item:first-of-type/*,input:checked ~ &__item:first-of-type*/{
     width: 26px;
   }
+
   & input:hover ~ &__item:last-of-type/*, input:checked ~ &__item:last-of-type*/{
     width: 20px;
   }
+
   & input:hover ~ .menu/*, input:checked ~ .menu*/ {
     left: 50%;
   }
 }
+
 .menu{
   transition: left 0.4s linear;
   position: absolute;
@@ -127,9 +133,11 @@ body{
     border-bottom: 2px solid #3b3b3b;
     padding-left: 33px;
     position: relative;
+
     &:hover{
       color:white;
     }
+
     &:hover:before{
       content: "";
       width: 8px;
@@ -140,9 +148,9 @@ body{
       left: 0;
       transform: translate(0, -50%);
     }
-
   }
 }
+
 .home{
   position: relative;
   height: 616px;
@@ -152,6 +160,7 @@ body{
   @extend %fontFamilyMontserrat;
   padding: 37px 0 0 0 ;
   margin-bottom: 80px;
+
   &__title{
     color: white;
     font-size: 48px;
@@ -170,6 +179,7 @@ body{
     color: #848e97;
     line-height: 2;
   }
+
   &__button{
     position: absolute;
     font-size: 18px;
@@ -191,8 +201,85 @@ body{
       transform: translate(-50%, 0);
       white-space: nowrap;
     }
-    }
+  }
 }
+
+.rev-editor {
+  text-align: center;
+
+  &__title {
+    margin-bottom: 23px;
+    @extend %fontFamilyMontserrat;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #635c73;
+    line-height: 1.5;
+  }
+
+  &__caption {
+    @extend %fontFamilyLato;
+    padding: 0 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #323232;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 34px 0 68px;
+  }
+
+  &__actions-item {
+    display: inline-block;
+    margin: 0 5px 20px;
+    border: 1px solid rgba(27, 31, 35, .2);
+    border-radius: 3px;
+    @extend %fontFamilyLato;
+    font-weight: 700;
+    font-size: 14px;
+    color: #24292e;
+    user-select: none;
+  }
+
+  &__actions-btn {
+    display: inline-block;
+    padding: 3px 10px;
+    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+    border-right: 1px solid rgba(27, 31, 35, .2);
+    cursor: pointer;
+  }
+
+  &__actions-item:nth-child(1) &__actions-btn:after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: 4px solid transparent;
+    border-top-color: currentcolor;
+    vertical-align: -2px;
+  }
+
+  &__actions-btn:hover {
+    box-shadow: inset 0 25px 0 0 rgba(0, 0, 0, .03);
+  }
+
+  &__actions-btn:active {
+    box-shadow: inset 0 25px 0 0 rgba(0, 0, 0, .03),
+    inset 0 1px 5px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  &__icon {
+    vertical-align: -3px;
+  }
+
+  &__action-count {
+    margin: 0 5px;
+  }
+}
+
 .people{
   background: url("../img/testmonials-bg.png") no-repeat ;
   background-size: cover;
@@ -271,8 +358,8 @@ body{
     &__touch,  &__item{
       display: none;
     }
-
   }
+
   .menu{
     position: static;
     transform: translate(0, 0);
@@ -295,8 +382,10 @@ body{
       }
     }
   }
+
   .home{
     height: 680px;
+
     &__title{
       font-size: 72px;
     }
@@ -309,6 +398,24 @@ body{
       font-size: 21px;
     }
   }
+
+  .rev-editor {
+    &__title {
+      font-size: 34px;
+      margin-bottom: 38px;
+    }
+
+    &__caption {
+      padding: 0 47px;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    &__actions {
+      margin: 36px 0 98px;
+    }
+  }
+
   .people{
     display: grid;
     grid-column-gap: 10px;
@@ -354,26 +461,42 @@ body{
       grid-template-columns: 150px 1fr 170px ;
       grid-template-areas: 'logo burger button';
     }
+
     .burger{
       justify-self: end;
       align-items: center;
       justify-content: flex-end;
     }
+
     .home{
       height: 700px;
     }
+
+    .rev-editor {
+      &__title {
+        font-size: 42px;
+      }
+
+      &__caption {
+        font-size: 24px;
+      }
+    }
+
     .people{
       grid-template-columns: repeat(3,1fr);
       &__slogan, &__text, &__line{
         grid-column-start:1;
         grid-column-end:4;
       }
+
       &__slogan{
         font-size: 48px;
       }
+
       &__text{
         width: 860px;
       }
+
       &__line{
         width: 780px;
       }

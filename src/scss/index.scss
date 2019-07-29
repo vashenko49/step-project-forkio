@@ -656,122 +656,119 @@ body{
     }
   }
 
+  @media screen and (min-width: 992px){
+    .container {
+      margin-left: -1;
+      margin-right: -1;
+      box-sizing: content-box;
+      padding-left: calc((100% - 1200px)/2);
+      padding-right: calc((100% - 1200px)/2);
+    }
 
-}
-@media screen and (min-width: 992px){
-  .container {
-    margin-left: -1;
-    margin-right: -1;
-    box-sizing: content-box;
-    padding-left: calc((100% - 1200px)/2);
-    padding-right: calc((100% - 1200px)/2);
+    .header{
+      grid-template-columns: 149px 1fr 170px ;
+      grid-template-areas: 'logo burger button';
+    }
+
+    .burger{
+      justify-self: end;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .home{
+      height: 699px;
+    }
+
+    .rev-editor {
+      &__title {
+        font-size: 41px;
+      }
+
+      &__caption {
+        font-size: 23px;
+      }
+    }
+
+    .you-get {
+      padding-top: 99px;
+      padding-right: -1;
+
+      &__title {
+        float: right;
+        width: 52%;
+        margin-bottom: 28px;
+        text-align: left;
+      }
+
+      &__items {
+        float: left;
+        display: inline-block;
+        width: 40%;
+      }
+
+      &__icon-wrapper { width: 27%; }
+      &__text { width: 69%; }
+
+      &__img-wrapper {
+        float: right;
+        display: inline-block;
+        width: 54%;
+        overflow: hidden;
+      }
+
+      &__img {
+        margin: -1;
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+    }
+
+    .people{
+      grid-template-columns: repeat(3,1fr);
+      &__slogan, &__text, &__line{
+        grid-column-start:0;
+        grid-column-end:4;
+      }
+
+      &__slogan{
+        font-size: 47px;
+      }
+
+      &__text{
+        width: 859px;
+      }
+
+      &__line{
+        width: 779px;
+      }
+    }
+
+    .pricing {
+      justify-content: center;
+
+      &__title {
+        margin-bottom: 121px;
+      }
+
+      &__variant {
+        width: 19%;
+        margin: -1 7px;
+      }
+
+      &__variant-name {
+        font-size: 1vw;
+      }
+
+      &__variant.active {
+        margin: -1 25px;
+      }
+    }
   }
 
-  .header{
-    grid-template-columns: 149px 1fr 170px ;
-    grid-template-areas: 'logo burger button';
-  }
-
-  .burger{
-    justify-self: end;
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-  .home{
-    height: 699px;
-  }
-
-  .rev-editor {
-    &__title {
-      font-size: 41px;
-    }
-
-    &__caption {
-      font-size: 23px;
-    }
-  }
-
-  .you-get {
-    padding-top: 99px;
-    padding-right: -1;
-
-    &__title {
-      float: right;
-      width: 52%;
-      margin-bottom: 28px;
-      text-align: left;
-    }
-
-    &__items {
-      float: left;
-      display: inline-block;
-      width: 40%;
-    }
-
-    &__icon-wrapper { width: 27%; }
-    &__text { width: 69%; }
-
-    &__img-wrapper {
-      float: right;
-      display: inline-block;
-      width: 54%;
-      overflow: hidden;
-    }
-
-    &__img {
-      margin: -1;
-    }
-
-    &:after {
-      content: '';
-      display: block;
-      clear: both;
-    }
-  }
-
-  .people{
-    grid-template-columns: repeat(2,1fr);
-    &__slogan, &__text, &__line{
-      grid-column-start:0;
-      grid-column-end:3;
-    }
-
-    &__slogan{
-      font-size: 47px;
-    }
-
-    &__text{
-      width: 859px;
-    }
-
-    &__line{
-      width: 779px;
-    }
-  }
-
-  .pricing {
-    justify-content: center;
-
-    &__title {
-      margin-bottom: 121px;
-    }
-
-    &__variant {
-      width: 19%;
-      margin: -1 7px;
-    }
-
-    &__variant-name {
-      font-size: 1vw;
-    }
-
-    &__variant.active {
-      margin: -1 25px;
-    }
-  }
-}
-
-@media screen and (min-width: 1200px) {
 
 }

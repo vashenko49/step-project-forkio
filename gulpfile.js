@@ -12,7 +12,7 @@ let webpack = require('webpack-stream');
 let babel = require('gulp-babel');
 let ifElse = require('gulp-if-else');
 
-let isDevelopment = true;
+let isDevelopment = false;
 
 let webPackConfig = {
     output:{

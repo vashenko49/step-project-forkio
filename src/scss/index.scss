@@ -11,12 +11,14 @@ body{
 
 %button{
   border-radius: 25px;
-  border: none;
+  border: 1px solid transparent;
   outline: none;
   transition: color 0.3s linear;
   color: white;
   background-color: #8d81ac;
+  cursor: pointer;
   &:hover{
+    border-color: #8d81ac;
     background-color: #fff;
     color: #8d81ac;
   }
@@ -51,6 +53,7 @@ body{
     width: 43px;
     height: 41px;
     display: inline-block;
+    cursor: pointer;
     background-image: url('../img/Logo.png');
     &:hover{
       background-image: url('../img/logo-hover.png');
@@ -58,7 +61,6 @@ body{
   }
   &__slogan{
     display: none;
-    cursor: pointer;
   }
   &__button{
     justify-self: center;
@@ -467,6 +469,13 @@ body{
     &__logo{
       display: flex;
       align-items: center;
+      cursor: pointer;
+      &:hover>.header__img{
+        background-image: url('../img/logo-hover.png');
+      }
+      &:hover>.header__slogan{
+        color: #ffffff;
+      }
     }
 
     &__slogan{
@@ -476,9 +485,6 @@ body{
       font-weight: bold;
       color: #8d81ac;
       margin-left: 17px;
-      &:hover{
-        color: #ffffff;
-      }
     }
   }
 
@@ -650,119 +656,122 @@ body{
     }
   }
 
-  @media screen and (min-width: 993px){
-    .header{
-      grid-template-columns: 150px 1fr 170px ;
-      grid-template-areas: 'logo burger button';
+
+}
+@media screen and (min-width: 992px){
+  .container {
+    margin-left: -1;
+    margin-right: -1;
+    box-sizing: content-box;
+    padding-left: calc((100% - 1200px)/2);
+    padding-right: calc((100% - 1200px)/2);
+  }
+
+  .header{
+    grid-template-columns: 149px 1fr 170px ;
+    grid-template-areas: 'logo burger button';
+  }
+
+  .burger{
+    justify-self: end;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .home{
+    height: 699px;
+  }
+
+  .rev-editor {
+    &__title {
+      font-size: 41px;
     }
 
-    .burger{
-      justify-self: end;
-      align-items: center;
-      justify-content: flex-end;
+    &__caption {
+      font-size: 23px;
+    }
+  }
+
+  .you-get {
+    padding-top: 99px;
+    padding-right: -1;
+
+    &__title {
+      float: right;
+      width: 52%;
+      margin-bottom: 28px;
+      text-align: left;
     }
 
-    .home{
-      height: 700px;
+    &__items {
+      float: left;
+      display: inline-block;
+      width: 40%;
     }
 
-    .rev-editor {
-      &__title {
-        font-size: 42px;
-      }
+    &__icon-wrapper { width: 27%; }
+    &__text { width: 69%; }
 
-      &__caption {
-        font-size: 24px;
-      }
+    &__img-wrapper {
+      float: right;
+      display: inline-block;
+      width: 54%;
+      overflow: hidden;
     }
 
-    .you-get {
-      padding-top: 100px;
-      padding-right: 0;
-
-      &__title {
-        float: right;
-        width: 53%;
-        margin-bottom: 29px;
-        text-align: left;
-      }
-
-      &__items {
-        float: left;
-        display: inline-block;
-        width: 41%;
-      }
-
-      &__icon-wrapper { width: 28%; }
-      &__text { width: 70%; }
-
-      &__img-wrapper {
-        float: right;
-        display: inline-block;
-        width: 55%;
-        overflow: hidden;
-      }
-
-      &__img {
-        margin: 0;
-      }
-
-      &:after {
-        content: '';
-        display: block;
-        clear: both;
-      }
+    &__img {
+      margin: -1;
     }
 
-    .people{
-      grid-template-columns: repeat(3,1fr);
-      &__slogan, &__text, &__line{
-        grid-column-start:1;
-        grid-column-end:4;
-      }
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
 
-      &__slogan{
-        font-size: 48px;
-      }
-
-      &__text{
-        width: 860px;
-      }
-
-      &__line{
-        width: 780px;
-      }
+  .people{
+    grid-template-columns: repeat(2,1fr);
+    &__slogan, &__text, &__line{
+      grid-column-start:0;
+      grid-column-end:3;
     }
 
-    .pricing {
-      justify-content: center;
+    &__slogan{
+      font-size: 47px;
+    }
 
-      &__title {
-        margin-bottom: 122px;
-      }
+    &__text{
+      width: 859px;
+    }
 
-      &__variant {
-        width: 20%;
-        margin: 0 7px;
-      }
+    &__line{
+      width: 779px;
+    }
+  }
 
-      &__variant-name {
-        font-size: 2vw;
-      }
+  .pricing {
+    justify-content: center;
 
-      &__variant.active {
-        margin: 0 25px;
-      }
+    &__title {
+      margin-bottom: 121px;
+    }
+
+    &__variant {
+      width: 19%;
+      margin: -1 7px;
+    }
+
+    &__variant-name {
+      font-size: 1vw;
+    }
+
+    &__variant.active {
+      margin: -1 25px;
     }
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .container {
-    margin-left: 0;
-    margin-right: 0;
-    box-sizing: content-box;
-    padding-left: calc((100% - 1210px)/2);
-    padding-right: calc((100% - 1210px)/2);
-  }
+
 }

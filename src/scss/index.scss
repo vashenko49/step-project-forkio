@@ -9,6 +9,21 @@ body{
   overflow-x: hidden;
 }
 
+@mixin button($bgc,$borc,$fontColor,$bgh,$fontColorH){
+  border-radius: 25px;
+  border: 1px solid transparent;
+  outline: none;
+  transition: color 0.3s linear;
+  color: $fontColor;
+  background-color: $bgc;
+  cursor: pointer;
+  &:hover{
+    border-color: $borc;
+    background-color: $bgh;
+    color: $fontColorH;
+  }
+}
+
 %button{
   border-radius: 25px;
   border: 1px solid transparent;
@@ -69,7 +84,7 @@ body{
     grid-area: button;
     font-size: 15px;
     font-weight: bold;
-    @extend %button;
+    @include button(#8d81ac,#8d81ac,#fff,#fff,#8d81ac);
   }
 }
 
@@ -104,15 +119,15 @@ body{
     }
   }
 
-  & input:hover ~ &__item:first-of-type/*,input:checked ~ &__item:first-of-type*/{
+  & input:checked ~ &__item:first-of-type{
     width: 26px;
   }
 
-  & input:hover ~ &__item:last-of-type/*, input:checked ~ &__item:last-of-type*/{
+  & input:checked ~ &__item:last-of-type{
     width: 20px;
   }
 
-  & input:hover ~ .menu/*, input:checked ~ .menu*/ {
+  & input:checked ~ .menu {
     left: 50%;
   }
 }
@@ -135,22 +150,22 @@ body{
     border-bottom: 2px solid #3b3b3b;
     padding-left: 33px;
     position: relative;
-
-    &:hover{
-      color:white;
-    }
-
-    &:hover:before{
-      content: "";
-      width: 8px;
-      height: 53px;
-      background-color: $mainColor;
-      position: absolute;
-      top: 53%;
-      left: 0;
-      transform: translate(0, -50%);
-    }
   }
+  &__item:hover, .selectItem{
+    color:$mainColor;
+  }
+
+  &__item:hover:before, .selectItem:before{
+    content: "";
+    width: 8px;
+    height: 53px;
+    background-color: $mainColor;
+    position: absolute;
+    top: 53%;
+    left: 0;
+    transform: translate(0, -50%);
+  }
+
 }
 
 .home{
@@ -190,7 +205,7 @@ body{
     height: 45px;
     bottom: 0;
     transform: translate(-50%, 50%);
-    @extend %button;
+    @include button(#8d81ac,#8d81ac,#fff,#fff,#8d81ac);
     &:after{
       position:absolute ;
       content: "Unlimited 30-Days Trial Period";
@@ -371,7 +386,6 @@ body{
   @extend %fontFamilyMontserrat;
   text-align: center;
   color: #fff;
-  text-align: center;
 
   &__title {
     font-size: 27px;
@@ -432,16 +446,11 @@ body{
   &__variant-btn {
     display: inline-block;
     border-radius: 25px;
-    background-color: rgba(255, 255, 255, .2);
     padding: 16px 38px;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 12px;
-    color: #fff;
-  }
-
-  &__variant-btn:hover {
-    background-color: rgba(255, 255, 255, .4);
+    @include button(rgba(255, 255, 255, .2),none,#fff,rgba(255, 255, 255, .4), inherit)
   }
 
   &__variant.active {

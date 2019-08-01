@@ -4,19 +4,23 @@ console.log(example(4));
 console.log(example(4, 5));
 
 
-// window.onload=function () {
-//     function myFunction(x) {
-//         if (x.matches) { // менее 480
-//
-//         } else {//более 480
-//
-//         }
-//     }
-//
-//     let x = window.matchMedia("(max-width: 480px)");
-//     myFunction(x);
-//     x.addListener(myFunction);
-// };
+function highlightMenuItem(x) {
+    if (x.matches) { // If media query matches
+        let menu = document.querySelector('.menu');
+        menu.addEventListener('click',function (event) {
+            let target = event.target;
+            let elderSelect = document.querySelector('.selectItem');
+            if(elderSelect){
+                elderSelect.classList.remove('selectItem');
+            }
+            target.classList.add('selectItem');
+        });
+    }
+}
+
+let x = window.matchMedia("(max-width: 480px)");
+highlightMenuItem(x);
+x.addListener(highlightMenuItem);
 
 
 // import './scss/reset.scss'
